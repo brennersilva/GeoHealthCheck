@@ -30,26 +30,26 @@
 DEBUG = False
 SQLALCHEMY_ECHO = False
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
+#SQLALCHEMY_DATABASE_URI = 'sqlite:///data.db'
 # Alternative configuration for PostgreSQL database
-# SQLALCHEMY_DATABASE_URI = 'postgresql://user:password@host:port/database'
+SQLALCHEMY_DATABASE_URI = 'postgresql://bsilva:bs@localhost:5432/digitearth'
 
 # Replace None with 'your secret key string' in quotes
-SECRET_KEY = None
+SECRET_KEY = '2fba43844e7f4766fcf4e656df5a7243ef705995f63758ac'
 
 GHC_RETENTION_DAYS = 30
 GHC_PROBE_HTTP_TIMEOUT_SECS = 30
 GHC_MINIMAL_RUN_FREQUENCY_MINS = 10
 GHC_SELF_REGISTER = False
-GHC_NOTIFICATIONS = False
+GHC_NOTIFICATIONS = True
 GHC_NOTIFICATIONS_VERBOSITY = True
 GHC_WWW_LINK_EXCEPTION_CHECK = False
-GHC_ADMIN_EMAIL = 'digitalearth2019@example.com'
-GHC_NOTIFICATIONS_EMAIL = ['you2@example.com']
-GHC_SITE_TITLE = 'GeoHealthCheck Demonstration'
-GHC_SITE_URL = 'http://host'
-GHC_RUNNER_IN_WEBAPP = True
-GHC_REQUIRE_WEBAPP_AUTH = False
+GHC_ADMIN_EMAIL = 'digitalearth2019@gmail.com'
+GHC_NOTIFICATIONS_EMAIL = ['digitalearth2019@gmail.com']
+GHC_SITE_TITLE = 'GeoHealthCheck for Digital Earth'
+GHC_SITE_URL = 'http://localhost:8000'
+GHC_RUNNER_IN_WEBAPP = False
+GHC_REQUIRE_WEBAPP_AUTH = True
 # 10=DEBUG 20=INFO 30=WARN(ING) 40=ERROR 50=FATAL/CRITICAL
 GHC_LOG_LEVEL = 30
 GHC_LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -60,12 +60,12 @@ GHC_LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 GHC_METADATA_CACHE_SECS = 900
 
 GHC_SMTP = {
-    'server': None,
-    'port': None,
-    'tls': False,
+    'server': 'smtp.gmail.com',
+    'port': 587,
+    'tls': True,
     'ssl': False,
-    'username': None,
-    'password': None
+    'username': 'digitalearth2019',
+    'password': 'digitalEarth2019*'
 }
 
 GHC_RELIABILITY_MATRIX = {
@@ -85,8 +85,8 @@ GHC_RELIABILITY_MATRIX = {
 
 GHC_MAP = {
     'url': 'https://tile.osm.org/{z}/{x}/{y}.png',
-    'centre_lat': 42.3626,
-    'centre_long': -71.0843,
+    'centre_lat': 55.0,
+    'centre_long': 5.0,
     'maxzoom': 18,
     'subdomains': 1234,
 }

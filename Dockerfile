@@ -4,8 +4,8 @@ FROM python:3.7.4-alpine3.10
 # FROM debian:jessie
 
 # Credits to yjacolin for providing first versions
-LABEL original_developer="yjacolin <yves.jacolin@camptocamp.com>" \
-	maintainer="Just van den Broecke <justb4@gmail.com>"
+#LABEL original_developer="yjacolin <yves.jacolin@camptocamp.com>" \
+#	maintainer="Just van den Broecke <justb4@gmail.com>"
 
 # These are default values,
 # Override when running container via docker(-compose)
@@ -17,11 +17,11 @@ ENV LC_ALL="en_US.UTF-8" \
     \
 	\
 	# GHC ENV settings\
-	ADMIN_NAME=admin \
-	ADMIN_PWD=admin \
-	ADMIN_EMAIL=admin.istrator@mydomain.com \
-	SQLALCHEMY_DATABASE_URI='sqlite:////GeoHealthCheck/DB/data.db' \
-	SECRET_KEY='d544ccc37dc3ad214c09b1b7faaa64c60351d5c8bb48b342' \
+	ADMIN_NAME=bsilva \
+	ADMIN_PWD=bs \
+	ADMIN_EMAIL=digitalearth2019@gmail.com \
+	SQLALCHEMY_DATABASE_URI='postgresql://bsilva:bs@localhost:5432/digitearth' \
+	SECRET_KEY='2fba43844e7f4766fcf4e656df5a7243ef705995f63758ac' \
 	GHC_PROBE_HTTP_TIMEOUT_SECS=30 \
 	GHC_MINIMAL_RUN_FREQUENCY_MINS=10 \
 	GHC_RETENTION_DAYS=30 \
@@ -29,14 +29,14 @@ ENV LC_ALL="en_US.UTF-8" \
 	GHC_NOTIFICATIONS=False \
 	GHC_NOTIFICATIONS_VERBOSITY=True \
 	GHC_WWW_LINK_EXCEPTION_CHECK=False \
-	GHC_ADMIN_EMAIL='you@example.com' \
+	GHC_ADMIN_EMAIL='digitalearth2019@gmail.com' \
 	GHC_RUNNER_IN_WEBAPP=False \
 	GHC_REQUIRE_WEBAPP_AUTH=False \
 	GHC_LOG_LEVEL=30 \
 	GHC_LOG_FORMAT='%(asctime)s - %(name)s - %(levelname)s - %(message)s' \
-	GHC_NOTIFICATIONS_EMAIL='you2@example.com,them@example.com' \
-	GHC_SITE_TITLE='GeoHealthCheck' \
-	GHC_SITE_URL='http://localhost' \
+	GHC_NOTIFICATIONS_EMAIL='digitalearth2019@gmail.com' \
+	GHC_SITE_TITLE='GeoHealthCheck for Digital Earth' \
+	GHC_SITE_URL='http://localhost:8000' \
 	GHC_SMTP_SERVER=None \
 	GHC_SMTP_PORT=None \
 	GHC_SMTP_TLS=False \
@@ -78,7 +78,7 @@ ADD . /GeoHealthCheck
 RUN chmod a+x /*.sh && bash install.sh && apk del .build-deps
 
 # For SQLite
-VOLUME ["/GeoHealthCheck/DB/"]
+#VOLUME ["/GeoHealthCheck/DB/"]
 
 EXPOSE ${PORT}
 
